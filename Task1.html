@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+	<style>	
+	div
+	{
+	width:135px;
+	margin:100px auto;
+	padding:0px;
+	overflow:hidden;
+	transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -o-transition:all 1s;
+	}
+	h1
+	{
+	color:#EAF5A5;
+	margin: 10px auto;
+	text-align: center;
+	transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -o-transition:all 1s;
+	}
+	#line
+	{
+	width:1px;
+	height:5px;
+	margin:0px auto;
+	padding:0px;
+	background-color:#D5D5D5;
+	overflow:hidden;
+	transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    -o-transition:all 1s;
+	}
+	button
+	{
+	margin: 40px 31px;
+    text-align: center;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    padding: 8px;
+	}
+	</style>
+    <script>
+	var toggle = false;
+	function trans(){
+		toggle = !toggle;
+		if(toggle){
+		document.getElementById("line").style.width="200px"
+		document.getElementById("title").style.color="red"
+		document.getElementById("line").style.backgroundColor="red"}
+	else{
+		document.getElementById("line").style.width="1px"
+		document.getElementById("title").style.color="#EAF5A5"
+		document.getElementById("line").style.backgroundColor="#EAF5A5"}
+
+	}
+	</script>
+   <body>
+ <div>
+ <h1 id="title">前端学院</h1>
+ <div id="line"></div>
+ <button onclick="trans()">切换样式</button>
+ </div>
+    </body>
+</html>
