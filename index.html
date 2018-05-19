@@ -4,7 +4,7 @@
         <meta charset="utf-8">
     </head>
 	<style>	
-	div
+	#wrap1
 	{
 	width:200px;
 	margin:100px auto;
@@ -45,10 +45,55 @@
     background-color: #FFFFFF;
     border-radius: 10px;
     border-style: solid;
+	outline-style: none;
     border-width: 1px;
     border-color: #000000;
     padding: 8px;
 	}
+	#wrap2
+	{
+		display: flex;
+		 justify-content:center;
+    margin: 10px auto;
+	text-align: center;
+	overflow:hidden;
+	}
+    #front, #back {
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    -ms-transition: 1s;
+    transition: 1s;
+    position: absolute;
+}
+    #back {
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+    #front.enter
+    {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    }
+    #back.out
+    {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    z-index: 3; /* 降级处理不支持CSS3的浏览器，只是简单的将back上升盖住front */
+    }
 	</style>
     <script>
 	var toggle = false;
@@ -62,14 +107,28 @@
 		document.getElementById("line").style.width="1px"
 		document.getElementById("title").style.color="#EAF5A5"
 		document.getElementById("line").style.backgroundColor="#EAF5A5"}
-
 	}
+	window.onload = function() {
+     var imgwrap = document.getElementById('wrap2');
+	 var imgf = document.getElementById('front');
+     var imgb = document.getElementById('back');
+     imgwrap.onmouseenter = function (){
+        imgf.className = "enter";
+    }
+    imgwrap.onmouseleave = function (){
+        imgb.className = "out";
+    }          
+    }
 	</script>
    <body>
- <div>
+ <div id="wrap1">
  <h1 id="title">阿侬酱的博客Demo</h1>
  <div id="line"></div>
  <button onclick="trans()">切换样式</button>
  </div>
+ <div id="wrap2">
+		<img src="computer.png" id="front">
+		<img src="happy.png" id="back">
+		</div>
     </body>
 </html>
