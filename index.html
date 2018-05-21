@@ -55,9 +55,10 @@
 	}
 	#wrap2
 	{
-		display: flex;
-		 justify-content:center;
-	overflow:hidden;
+	display: flex;
+	justify-content:center;
+    perspective: 500;
+    -webkit-perspective: 500; /*Safari 和 Chrome */
 	}
 	h2
 	{
@@ -86,7 +87,7 @@
     -ms-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
 }
-    #front.enter
+    #front:hover
     {
     -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg);
@@ -94,7 +95,7 @@
     -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
     }
-    #back.out
+    #back:hover
     {
     -webkit-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
@@ -122,16 +123,20 @@
 	 var imgf = document.getElementById('front');
      var imgb = document.getElementById('back');
      imgwrap.onmouseenter = function (){
-        imgf.className = "enter";
+        // imgf.className = "enter";
+        imgf.style.transform = "rotateY(180deg)";
+        imgb.style.transform = "rotateY(0deg)";
     }
     imgwrap.onmouseleave = function (){
-        imgb.className = "out";
+        // imgb.className = "out";
+        imgf.style.transform = "rotateY(0deg)";
+        imgb.style.transform = "rotateY(-180deg)";
     }          
     }
 	</script>
    <body>
  <div id="wrap1">
- <h1 id="title">阿侬酱的博客Demo</h1>
+ <h1 id="title">阿侬酱的CSS实验室</h1>
  <div id="line"></div>
  <button onclick="trans()">切换样式</button>
  </div>
@@ -141,6 +146,6 @@
 
 		
 		</div>
-		<h2>戳我戳我戳我~我会转圈圈哦!（但只能转一次）</h2>
+		<h2>戳我戳我戳我~我会转圈圈哦!</h2>
     </body>
 </html>
