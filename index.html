@@ -104,6 +104,79 @@
     transform: rotateY(0deg);
     z-index: 3;
     } */
+    .music-note{
+  position: absolute;
+  font-size: 100px;
+  color: rgb(6, 8, 26);
+  width: 1px;
+  left: 50%;
+  opacity: 0;
+}
+.music-note#one{
+  margin-left: -250px;
+  top: 50%;
+  animation: note-anim 2s 3.5s infinite ease;
+  animation-fill-mode: forwards;
+  -webkit-animation: note-anim 2s 3.5s infinite ease;
+  -webkit-animation-fill-mode: forwards;
+}
+.music-note#two{
+  margin-left: 150px;
+  top: 30%;
+  animation: note-anim 2s 4.3s infinite ease;
+  animation-fill-mode: forwards;
+  -webkit-animation: note-anim 2s 4.3s infinite ease;
+  -webkit-animation-fill-mode: forwards;
+}
+@keyframes note-anim
+{
+0% {
+  opacity: 0;
+  -webkit-transform: translate(0px,50px);
+  transform: translate(0px,50px);
+}
+30% {
+  -webkit-transform:rotate(12deg) translate(-30px,0px);
+  transform:rotate(12deg) translate(-30px,0px);
+}
+45% {
+  opacity: 1;
+}  
+60% {
+  -webkit-transform:rotate(-12deg) translate(30px,-100px);
+  transform:rotate(-12deg) translate(30px,-100px);
+}
+100% {
+  opacity: 0;
+  -webkit-transform:rotate(0deg) translate(0px,-200px);
+  transform:rotate(0deg) translate(0px,-200px);
+}
+}
+
+@-webkit-keyframes note-anim /* Safari and Chrome */
+{
+0% {
+  opacity: 0;
+  -webkit-transform: translate(0px,50px);
+  transform: translate(0px,50px);
+}
+30% {
+  -webkit-transform:rotate(12deg) translate(-30px,0px);
+  transform:rotate(12deg) translate(-30px,0px);
+}
+45% {
+  opacity: 1;
+}  
+60% {
+  -webkit-transform:rotate(-12deg) translate(30px,-100px);
+  transform:rotate(-12deg) translate(30px,-100px);
+}
+100% {
+  opacity: 0;
+  -webkit-transform:rotate(0deg) translate(0px,-200px);
+  transform:rotate(0deg) translate(0px,-200px);
+}
+}
 	</style>
     <script>
 	var toggle = false;
@@ -134,18 +207,18 @@
     }          
     }
 	</script>
-   <body>
- <div id="wrap1">
- <h1 id="title">阿侬酱的CSS实验室</h1>
- <div id="line"></div>
- <button onclick="trans()">切换样式</button>
- </div>
- <div id="wrap2">
-		<img src="computer.png" id="front">
-		<img src="happy.png" id="back">
-
-		
-		</div>
-		<h2>戳我戳我戳我~我会转圈圈哦!</h2>
+    <body>
+        <div id="wrap1">
+            <h1 id="title">阿侬酱的CSS实验室</h1>
+            <div id="line"></div>
+            <button onclick="trans()">切换样式</button>
+        </div>
+        <div id="wrap2">
+            <img src="computer.png" id="front">
+            <img src="happy.png" id="back">
+        </div>
+        <h2>戳我戳我戳我~我会转圈圈哦!</h2>
+        <span class="music-note" id="one">&#9835;</span>
+        <span class="music-note" id="two">&#9834;</span>
     </body>
 </html>
