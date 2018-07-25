@@ -10,7 +10,7 @@
 	#wrap1
 	{
 	width:200px;
-	margin:100px auto;
+	margin:50px auto;
 	padding:0px;
 	overflow:hidden;
 	transition: all 1s;
@@ -52,7 +52,15 @@
     border-width: 1px;
     border-color: #000000;
     padding: 8px;
+    color:black;
+    transition: all 1s;
 	}
+    button:hover{
+        background-color: #ff9e9e;
+        padding: 11px;
+        color:#fff;
+        border-color: #fff;
+    }
 	#wrap2
 	{
 	display: flex;
@@ -66,8 +74,22 @@
 	justify-content:center;
 	margin-top: -35px;
     color: brown;
-
 	}
+    a {
+        position: relative;
+        display: inline-block;
+        outline: none;
+        color: #fff;
+        text-decoration: none;
+        font-size: 22px;
+        padding: 5px 20px;
+        
+      }
+      a::after { content: "\5D"; right:  1px; position: absolute; transition: all 1s;color: transparent;}
+        a::before{content:"\5B";left:1px;position: absolute; transition: all 1s;color: transparent;}
+        a:hover::before, a:hover::after { position: absolute; }
+        a:hover::before { content: "\5B"; left: -10px;color: #fff; }
+        a:hover::after { content: "\5D"; right:  -10px;color: #fff; }
     #front, #back {
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
@@ -209,16 +231,19 @@
 	</script>
     <body>
         <div id="wrap1">
+            <span class="music-note" id="one">&#9835;</span>
+        <span class="music-note" id="two">&#9834;</span>
             <h1 id="title">阿侬酱的CSS实验室</h1>
             <div id="line"></div>
             <button onclick="trans()">切换样式</button>
         </div>
+        <div id="wrap3" style="text-align: center;" >
+        <a id="hint">我会转圈圈哦~</a></div>
         <div id="wrap2">
             <img src="computer.png" id="front">
             <img src="happy.png" id="back">
         </div>
-        <h2>戳我戳我戳我~我会转圈圈哦!</h2>
-        <span class="music-note" id="one">&#9835;</span>
-        <span class="music-note" id="two">&#9834;</span>
+
+        
     </body>
 </html>
